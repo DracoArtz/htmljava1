@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+            <title>Week 3 Lab Drawing on html canvas</title>
+            <meta charset="UTF=8">
+
+    </head>
+
+
+    <body>
+        <h1>Week 3 HTML Canvas Lab</h1>
+        <canvas id="canvas" width="800" height="600" style="border: 1px solid black;">
+            Please check your browser settings. 
+        </canvas>
+        <script>
+            //reference to canvas element
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            //ctx.fillrect(x pos, y pos, width, height)
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(20,20, 50, 100);
+            ctx.fillStyle = "#0000ff";
+            ctx.fillRect(80, 20, 50, 100);
+
+            //this makes an outline for the box
+            ctx.strokeStyle = "#00ff00";
+            ctx.lineWidth = "10";
+            ctx.strokeRect(80, 20, 50, 100);
+
+            //lets make some lines
+            ctx.strokeStyle = "yellow";
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(800,600);
+            ctx.lineTo(800,0);
+            ctx.lineTo(0,600);
+            ctx.lineTo(0,0);
+            ctx.stroke();
+
+            //a new line
+            ctx.strokeStyle = "#0000ff";
+            ctx.beginPath();
+            ctx.moveTo(400, 0);
+            ctx.lineTo(400, 600);
+            ctx.stroke();
+
+            //drawing a triangle
+            ctx.strokeStyle = "#ff00ff";
+            ctx.fillStyle = "cyan"
+            ctx.beginPath();
+            ctx.moveTo(400, 20);
+            ctx.lineTo(450, 100);
+            ctx.lineTo(350, 100);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            //drawing a circle
+            //ctx.arc(x pos, y pos, radius, start angle, end angle, is/isn't clockwise)
+            ctx.beginPath();
+            ctx.arc(400, 300, 100, 0, 2 * Math.PI, false);
+            //ctx.lineTo(400,300);   then also change end angle
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+        </script>
+    </body>
+
+</html>
